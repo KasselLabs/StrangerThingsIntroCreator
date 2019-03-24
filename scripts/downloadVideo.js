@@ -50,7 +50,7 @@ const requestVideo = function(donate,key, email){
                   ) :
                   ''
               ) +
-              '<p style="margin-top: 15px;">By using this website you are agreeing to our <a href="termsOfService.html" target="_blank">Terms of Service</a>.</p>'
+              '<p style="margin-top: 15px;">By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.</p>'
       });
     },
     error: ajaxErrorFunction('Error when request video download.')
@@ -100,7 +100,7 @@ export default function downloadVideo(openingKey){
                         'The video will be rendered in Full HD quality and MP4 file. To see a sample video click '+
                         '<a href="https://youtu.be/Q0eEXKyA540" target="_blank">here</a>. <br/>'+
                         'Attention! Make sure there are no typos in your text, there will be no correction after the video rendering.<br><br/>'+
-                        'By using this website you are agreeing to our <a href="termsOfService.html" target="_blank">Terms of Service</a>.'+
+                        'By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.'+
                         '</p>',
         showCancelButton: true,
         confirmButtonText: "Yes, donate!",
@@ -115,7 +115,7 @@ export default function downloadVideo(openingKey){
           '  <b>this video</b> without having to donate again. Just add',
           '  your other emails after the first one, without donating.',
           '  Attention! Make sure there are no typos in your text, you will need to request a new video download and donate again.',
-          '  By using this website you are agreeing to our <a href="termsOfService.html" target="_blank">Terms of Service</a>.',
+          '  By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.',
           '</p>'
         ].join('');
 
