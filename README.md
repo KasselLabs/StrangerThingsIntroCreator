@@ -2,6 +2,6 @@
 
 ![Stranger Things Intro Creator](./preview.png "Stranger Things Intro Creator")
 
-Go to website: [https://brorlandi.github.io/StrangerThingsIntroCreator/](https://brorlandi.github.io/StrangerThingsIntroCreator/)
+Go to website: [http://StrangerThingsIntroCreator.kassellabs.io/](http://StrangerThingsIntroCreator.kassellabs.io/)
 
-For more information contact: brorlandi@gmail.com, nihey.takizawa@gmail.com
+For more information contact: StrangerThings@kassellabs.io
