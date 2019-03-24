@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - "8"
+cache:
+  yarn: true
+  directories:
+    - node_modules
+script:
+  - yarn build
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: dist
+  keep-history: true
+  fqdn: strangerthingsintrocreator.kassellabs.io
+  on:
+    branch: master
+notifications:
+  webhooks: https://fathomless-fjord-24024.herokuapp.com/notify
