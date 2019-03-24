@@ -1092,10 +1092,10 @@ body.overflow {
     color: #C11B1F;
     font-weight: bold;
     text-decoration: none; }
-  .footerText #termsOfService {
+  .footerText .side-link {
     font-size: 1.1em;
     display: block; }
-    .footerText #termsOfService:hover {
+    .footerText .side-link:hover {
       text-decoration: underline; }
 
 .leftFooter {
