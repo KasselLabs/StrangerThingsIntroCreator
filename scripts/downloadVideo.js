@@ -27,7 +27,7 @@ const calcTime = function(queue){
 const requestVideo = function(donate,key, email){
   if(email === false) return false;
 
-  var url = "https://upsidedown.nihey.org/request?code="+ key +"&email=" + email;
+  var url = "https://upsidedown.kassellabs.io/request?code="+ key +"&email=" + email;
   $.ajax({
     url: url,
     type: 'GET',
@@ -60,7 +60,7 @@ const requestVideo = function(donate,key, email){
 export default function downloadVideo(openingKey){
     // check if download is available:
   $.ajax({
-    url: "https://upsidedown.nihey.org/status?code="+openingKey,
+    url: "https://upsidedown.kassellabs.io/status?code="+openingKey,
     crossDomain: true,
     success: (data) => {
       var queue = data.queue;
