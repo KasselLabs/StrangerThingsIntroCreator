@@ -3,6 +3,10 @@
 
 $mobile: 'only screen and (max-device-width : 500px)';
 
+html {
+  background: black;
+}
+
 video.fullscreen {
   position: fixed;
   top: 50%;
