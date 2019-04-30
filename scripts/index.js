@@ -62,7 +62,7 @@ class App extends React.Component {
                     swal("Oops...", "Opening not found!", "error");
                     return;
                 }
-                $('[name=custom]').val(props.hash);
+                $('[name=custom]').val('STIC_' + props.hash);
                 makeTheStrangerIntro(opening);
                 if(autoPlay){
                     this.playIntro();

@@ -11,7 +11,7 @@
   var code = location.hash.split('#!/')[1];
   if (code) {
     Array.prototype.map.call(document.querySelectorAll('[name=custom]'), function(element) {
-      element.value = code;
+      element.value = 'STIC_' + code;
     });
   }
 </script>
