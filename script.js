@@ -141,7 +141,7 @@
 	                            (0, _sweetalert2.default)("Oops...", "Opening not found!", "error");
 	                            return;
 	                        }
-	                        $('[name=custom]').val(props.hash);
+	                        $('[name=custom]').val('STIC_' + props.hash);
 	                        (0, _makeTheStrangerIntro2.default)(opening);
 	                        if (autoPlay) {
 	                            _this.playIntro();
