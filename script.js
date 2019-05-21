@@ -34650,6 +34650,9 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
+
+	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 	exports.default = downloadVideo;
 
 	var _sweetalert = __webpack_require__(204);
@@ -34684,6 +34687,8 @@
 	  }
 	  return time;
 	};
+
+	var paymentPageUrl = 'https://payment.kassellabs.io/';
 
 	var requestVideo = function requestVideo(donate, key, email) {
 	  if (email === false) return false;
@@ -34741,15 +34746,14 @@
 	        confirmButtonText: "Yes, donate!",
 	        cancelButtonText: "No, I'll get in the queue!",
 	        animation: "slide-from-top"
-	      }).then(function (_success_) {
+	      }).then(function () {
 
-	        var donateText = ['<p>', '  Please, use the same email from you PayPal account.', "  You'll be able to add as many e-mails as you want to", '  <b>this video</b> without having to donate again. Just add', '  your other emails after the first one, without donating.', '  Attention! Make sure there are no typos in your text, you will need to request a new video download and donate again.', '  By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.', '</p>'].join('');
+	        var donateAlert = _extends({}, generateAlert);
 
-	        generateAlert.title = '<h2>Donate</h2>';
-	        generateAlert.html = '<p>Thanks for your support! Remember, at least $7 Dollars for the rendered video.</p><p>Click on the button below and proceed to the donation via PayPal.</p>' + '<iframe src="./donateButtons.html#!/' + openingKey + '" height="75"></iframe>' + generateAlert.html + donateText;
-
-	        (0, _sweetalert2.default)(generateAlert).then(requestVideo.bind(window, true, openingKey));
-	      }, function (_cancel_) {
+	        donateAlert.title = '<h2>Donate</h2>';
+	        donateAlert.html = '\n          <p>Thanks for your support! Remember, at least $7 Dollars for the rendered video.</p>\n          <p>You can pay via Credit Card or via PayPal.</p>\n          <iframe\n            id="stripeDonateIframe"\n            title="Stripe Payment Form"\n            src="' + paymentPageUrl + '?app=stranger-things&code=' + openingKey + '"\n            allowpaymentrequest="true"\n          ></iframe>\n          <p>Or PayPal:</p>\n          <iframe src="./donateButtons.html#!/' + openingKey + '" height="55"></iframe>\n          <p>Confirm your email below and you will receive a message with the link to download your video when it\'s ready</p>\n          <p>\n            You\'ll be able to add as many e-mails as you want to\n            <b>this video</b>. Just add\n            your other emails after the first one, without donating.\n            Attention! Make sure there are no typos in your text, you will need to request a new video download and donate again.\n            By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.\n          </p>\n        ';
+	        (0, _sweetalert2.default)(donateAlert).then(requestVideo.bind(window, true, openingKey));
+	      }, function () {
 	        (0, _sweetalert2.default)(generateAlert).then(requestVideo.bind(window, false, openingKey));
 	      });
 	    },

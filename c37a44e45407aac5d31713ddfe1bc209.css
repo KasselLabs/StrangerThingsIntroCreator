@@ -1000,6 +1000,7 @@ body.overflow {
   display: none; }
 
 .stranger-alert {
+  width: 800px !important;
   border: 2px solid #C11B1F; }
   .stranger-alert h2 {
     color: #C11B1F; }
@@ -1126,3 +1127,7 @@ iframe {
       text-align: center; }
       #kasselLogo img {
         height: 30px; } }
+
+#stripeDonateIframe {
+  width: 100%;
+  height: 460px; }
