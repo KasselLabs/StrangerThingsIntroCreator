@@ -24,6 +24,8 @@ const calcTime = function(queue){
   return time;
 };
 
+const paymentPageUrl = 'https://payment.kassellabs.io/';
+
 const requestVideo = function(donate,key, email){
   if(email === false) return false;
 
@@ -50,10 +52,10 @@ const requestVideo = function(donate,key, email){
                   ) :
                   ''
               ) +
-              '<p style="margin-top: 15px;">By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.</p>'
+              '<p style="margin-top: 15px;">By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.</p>',
       });
     },
-    error: ajaxErrorFunction('Error when request video download.')
+    error: ajaxErrorFunction('Error when request video download.'),
   });
 };
 
@@ -69,7 +71,7 @@ export default function downloadVideo(openingKey){
         queue = data.queueSize;
       }
 
-                // video already rendered
+      // video already rendered
       if(data.url){
         swal({
           title: '<h2>Download</h2>',
@@ -105,29 +107,39 @@ export default function downloadVideo(openingKey){
         showCancelButton: true,
         confirmButtonText: "Yes, donate!",
         cancelButtonText: "No, I'll get in the queue!",
-        animation: "slide-from-top"
-      }).then((_success_) => {
+        animation: "slide-from-top",
+      }).then(() => {
 
-        var donateText = [
-          '<p>',
-          '  Please, use the same email from you PayPal account.',
-          "  You'll be able to add as many e-mails as you want to",
-          '  <b>this video</b> without having to donate again. Just add',
-          '  your other emails after the first one, without donating.',
-          '  Attention! Make sure there are no typos in your text, you will need to request a new video download and donate again.',
-          '  By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.',
-          '</p>'
-        ].join('');
+        const donateAlert = {
+          ...generateAlert,
+        };
 
-        generateAlert.title = '<h2>Donate</h2>';
-        generateAlert.html = '<p>Thanks for your support! Remember, at least $7 Dollars for the rendered video.</p><p>Click on the button below and proceed to the donation via PayPal.</p>'
-                            +'<iframe src="./donateButtons.html#!/' + openingKey + '" height="75"></iframe>'+generateAlert.html+donateText;
-
-        swal(generateAlert).then(requestVideo.bind(window, true, openingKey));
-      },(_cancel_) => {
+        donateAlert.title = '<h2>Donate</h2>';
+        donateAlert.html =`
+          <p>Thanks for your support! Remember, at least $7 Dollars for the rendered video.</p>
+          <p>You can pay via Credit Card or via PayPal.</p>
+          <iframe
+            id="stripeDonateIframe"
+            title="Stripe Payment Form"
+            src="${paymentPageUrl}?app=stranger-things&code=${openingKey}"
+            allowpaymentrequest="true"
+          ></iframe>
+          <p>Or PayPal:</p>
+          <iframe src="./donateButtons.html#!/${openingKey}" height="55"></iframe>
+          <p>Confirm your email below and you will receive a message with the link to download your video when it's ready</p>
+          <p>
+            You'll be able to add as many e-mails as you want to
+            <b>this video</b>. Just add
+            your other emails after the first one, without donating.
+            Attention! Make sure there are no typos in your text, you will need to request a new video download and donate again.
+            By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.
+          </p>
+        `;
+        swal(donateAlert).then(requestVideo.bind(window, true, openingKey));
+      },() => {
         swal(generateAlert).then(requestVideo.bind(window, false, openingKey));
       });
     },
-    error: ajaxErrorFunction('Error when request video information to download.')
+    error: ajaxErrorFunction('Error when request video information to download.'),
   });
 }

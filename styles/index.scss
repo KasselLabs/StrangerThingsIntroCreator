@@ -133,6 +133,7 @@ body.overflow{
 }
 
 .stranger-alert{
+    width: 800px !important;
     border: 2px solid $color-title;
     h2 {
         color:  $color-title;
@@ -325,4 +326,9 @@ iframe{
           width: 100%;
           text-align: center;
     }
-  }
+}
+
+#stripeDonateIframe {
+    width: 100%;
+    height: 460px;
+}
