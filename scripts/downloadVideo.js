@@ -121,7 +121,7 @@ export default function downloadVideo(openingKey){
           <iframe
             id="stripeDonateIframe"
             title="Stripe Payment Form"
-            src="${paymentPageUrl}?app=stranger-things&code=${openingKey}"
+            src="${paymentPageUrl}?embed=true&app=stranger-things&code=${openingKey}"
             allowpaymentrequest="true"
           ></iframe>
           <p>Or PayPal:</p>
