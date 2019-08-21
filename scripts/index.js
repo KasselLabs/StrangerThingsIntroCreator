@@ -3,7 +3,6 @@ import 'strangerScript';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import makeTheStrangerIntro from 'makeTheStrangerIntro';
-import swal from 'sweetalert2';
 import bowser from 'bowser';
 import * as Sentry from '@sentry/browser';
 
@@ -26,11 +25,6 @@ Sentry.init({
 });
 
 const browser = bowser.getParser(window.navigator.userAgent);
-
-swal.setDefaults({
-    background: '#060606',
-    customClass: 'stranger-alert',
-});
 
 const defaultOpening = {
     logo: `STRANGER
@@ -266,7 +260,7 @@ class App extends React.Component {
     render(){
         const recommendChrome = 'We recommend using Google Chrome for the best experience.';
         const isNotChrome = !browser.isBrowser('chrome');
-
+        verifyBrowser(this.props);
         var notice;
         if(this.state.canPlay == 'can'){
             notice = <p className="intro-text">
