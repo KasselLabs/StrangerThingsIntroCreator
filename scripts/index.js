@@ -9,10 +9,21 @@ import * as Sentry from '@sentry/browser';
 
 import downloadVideo from './downloadVideo';
 import ajaxErrorFunction from './errorFunction';
+import verifyBrowser from './verifyBrowser';
+import swal from './swal';
 import { postUrl, getUrl } from './urls';
 import './bitcoinEther';
 
-Sentry.init({dsn: "https://937fa992cecf4a2c9d0c3066f99e463e@sentry.io/1536429"});
+Sentry.init({
+    dsn: "https://937fa992cecf4a2c9d0c3066f99e463e@sentry.io/1536429",
+    beforeSend: (event, hint) => {
+        const isSafari = browser.is('safari');
+        if(isSafari){
+          return null;
+        }
+        return event;
+    }
+});
 
 const browser = bowser.getParser(window.navigator.userAgent);
 
@@ -55,7 +66,7 @@ class App extends React.Component {
         }
     }
 
-    checkHash = (props, autoPlay = false)=>{
+    checkHash = (props, autoPlay = false) => {
         if(props.hash){
             var url = getUrl(props.hash);
             $.ajax({
