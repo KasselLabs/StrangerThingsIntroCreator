@@ -135,9 +135,9 @@ export default function downloadVideo(openingKey){
             By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.
           </p>
         `;
-        swal(donateAlert).then(requestVideo.bind(window, true, openingKey));
+        swal(donateAlert).then(requestVideo.bind(window, true, openingKey), () => {});
       },() => {
-        swal(generateAlert).then(requestVideo.bind(window, false, openingKey));
+        swal(generateAlert).then(requestVideo.bind(window, false, openingKey), () => {});
       });
     },
     error: ajaxErrorFunction('Error when request video information to download.'),
