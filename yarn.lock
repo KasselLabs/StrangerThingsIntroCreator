@@ -1381,10 +1381,10 @@ boom@2.x.x:
   dependencies:
     hoek "2.x.x"
 
-bowser@^2.0.0-beta.3:
-  version "2.0.0-beta.3"
-  resolved "https://registry.yarnpkg.com/bowser/-/bowser-2.0.0-beta.3.tgz#1b74d4fd69199aa237bc0f1f4c5e80df711635d8"
-  integrity sha512-eHZmZrwbWb8pZn7XtIrtpni/EjHgU6DZEcvJUrLRrTtnhBY8Kbj379JY+GGKeJ7CctidvWP2ueBAAzGDenydCg==
+bowser@^2.5.3:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/bowser/-/bowser-2.5.3.tgz#811b0a24219c566c9a6ab3402bc8a13f35a18a96"
+  integrity sha512-aWCA+CKfKNL/WGzNgjmK+Whp57JMzboZMwJ5gy2jDj2bEIjbMCb3ImGX+V++5wsJftyFiDIbOjRXl60ycniVqg==
 
 brace-expansion@^1.1.7:
   version "1.1.11"
