@@ -1,14 +1,28 @@
 import swal from 'sweetalert2';
+import * as Sentry from '@sentry/browser';
 
 export default function ajaxErrorFunction(bodyMessage){
-  var body = encodeURI("Hi, the website didn't work as expected. \n\n"+bodyMessage);
-  return function (){
+  return function (error){
+    console.log(error.status, error.statusText);
+    Sentry.addBreadcrumb({
+      message: 'Error modal with body message: '+ bodyMessage,
+      level: 'info',
+    });
+    Sentry.captureException(error);
+
     swal({
-      title: '<h2 style="font-family: BenguiatITCW01-BoldCn;">An error has occured</h2>',
-      html: '<p style="text-align: left">Something went wrong! Sorry about that! Please try again, if this error repeats please contact us: : '+
-            '<br><a style="color: #C11B1F;" href="mailto:kassellabs@gmail.com?Subject=STIC%20Problem&Body='+body+'" target="_blank">kassellabs@gmail.com</a></p>',
+      title: '<h2 style="font-family: BenguiatITCW01-BoldCn;">An Error has occured</h2>',
+      html: '<p style="text-align: left">Something went wrong! Sorry about that! Please try again reloading the page, if this error repeats please report to us on the button below.'+
+            '</p>',
       type: "error",
-      confirmButtonText: "Ok",
+      confirmButtonText: "Reload Page",
+      cancelButtonText: "Report details",
+      showCancelButton: true,
+    }).then(() => {
+      window.location.reload();
+    },() => {
+      Sentry.lastEventId();
+      Sentry.showReportDialog();
     });
   };
 }

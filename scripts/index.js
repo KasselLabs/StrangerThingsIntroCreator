@@ -5,10 +5,14 @@ import React from 'react';
 import makeTheStrangerIntro from 'makeTheStrangerIntro';
 import swal from 'sweetalert2';
 import bowser from 'bowser';
+import * as Sentry from '@sentry/browser';
+
 import downloadVideo from './downloadVideo';
 import ajaxErrorFunction from './errorFunction';
 import { postUrl, getUrl } from './urls';
 import './bitcoinEther';
+
+Sentry.init({dsn: "https://937fa992cecf4a2c9d0c3066f99e463e@sentry.io/1536429"});
 
 const browser = bowser.getParser(window.navigator.userAgent);
 
