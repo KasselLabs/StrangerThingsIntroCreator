@@ -53,7 +53,7 @@ const requestVideo = function(donate,key, email){
                   ''
               ) +
               '<p style="margin-top: 15px;">By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.</p>',
-      });
+      }).then(()=>{},()=>{});
     },
     error: ajaxErrorFunction('Error when request video download.'),
   });
@@ -78,7 +78,7 @@ export default function downloadVideo(openingKey){
           html: '<p>'+
                         'This video has already been generated, click the link below to download.<br><br>'+
                         '<a href="'+data.url+'">'+data.url+'</a></p>',
-        });
+        }).then(()=>{},()=>{});
         return ;
       }
 

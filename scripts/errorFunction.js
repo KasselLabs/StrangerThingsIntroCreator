@@ -8,7 +8,7 @@ export default function ajaxErrorFunction(bodyMessage){
       message: 'Error modal with body message: '+ bodyMessage,
       level: 'info',
     });
-    Sentry.captureException(error);
+    Sentry.captureException(new Error(bodyMessage));
 
     swal({
       title: '<h2 style="font-family: BenguiatITCW01-BoldCn;">An Error has occured</h2>',
@@ -18,6 +18,7 @@ export default function ajaxErrorFunction(bodyMessage){
       confirmButtonText: "Reload Page",
       cancelButtonText: "Report details",
       showCancelButton: true,
+      allowOutsideClick: false,
     }).then(() => {
       window.location.reload();
     },() => {

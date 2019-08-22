@@ -16,7 +16,7 @@ const verifyBrowser = (props) => {
   if(canShowBrowserAlert) {
     const isSafari = browser.is('safari');
     if(isSafari){
-      swal("Safari is incompatible", "Sorry but this website may have issues when running in Safari. For best experiencie try to use it on Chrome.", "error");
+      swal("Safari is incompatible", "Sorry but this website may have issues when running in Safari. For best experiencie try to use it on Chrome.", "error").then(()=>{},()=>{});
     }
   }
 
