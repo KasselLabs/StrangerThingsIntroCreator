@@ -154,7 +154,7 @@
 	                    success: function success(opening) {
 	                        _this.unsetLoading();
 	                        if (opening == null) {
-	                            (0, _swal2.default)("Oops...", "Opening not found!", "error");
+	                            (0, _swal2.default)("Oops...", "Opening not found!", "error").then(function () {}, function () {});
 	                            return;
 	                        }
 	                        $('[name=custom]').val('STIC_' + props.hash);
@@ -197,11 +197,17 @@
 
 	            var aLogo = opening.logo.split('\n');
 	            if (aLogo.length > 2) {
-	                (0, _swal2.default)("Oops...", "Logo can't have more than 2 lines.", "warning");
+	                (0, _swal2.default)("Oops...", "Logo can't have more than 2 lines.", "warning").then(function () {}, function () {});
 	                return;
 	            }
 
 	            _this.setLoading();
+
+	            Sentry.addBreadcrumb({
+	                message: JSON.stringify(opening),
+	                level: 'info'
+	            });
+
 	            $.ajax({
 	                url: (0, _urls.postUrl)(),
 	                method: "POST",
@@ -264,7 +270,7 @@
 	            _this.refs.logo.value = _this.refs.logo.value.replace(' ', '');
 
 	            if (_this.state.shouldAlertAboutSpace) {
-	                (0, _swal2.default)("Sorry!", "White space is not allowed in the title! For a better animation try to use only one word per line.", "warning");
+	                (0, _swal2.default)("Sorry!", "White space is not allowed in the title! For a better animation try to use only one word per line.", "warning").then(function () {}, function () {});
 	                _this.setState({
 	                    shouldAlertAboutSpace: false
 	                });
@@ -39730,7 +39736,7 @@
 	      (0, _sweetalert2.default)({
 	        title: '<h2>Video Request Sent</h2>',
 	        html: '<p>' + 'Your video has been queued. Your current position on the queue is <b>' + (queue + 1) + '</b>, which will take up to <b>' + calcTime(queue) + '</b>.<br>' + 'The link to download the video will be sent to the e-mail:<br>' + '</p><span class="email">' + email + '</span>' + (donate ? '<p style="margin-top: 15px;">But as you donated, we will bump you up on the queue.' + '  Thank you so much for supporting us! You should receive the confirmation email within a few minutes.' + '</p>' : '') + '<p style="margin-top: 15px;">By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.</p>'
-	      });
+	      }).then(function () {}, function () {});
 	    },
 	    error: (0, _errorFunction2.default)('Error when request video download.')
 	  });
@@ -39753,7 +39759,7 @@
 	        (0, _sweetalert2.default)({
 	          title: '<h2>Download</h2>',
 	          html: '<p>' + 'This video has already been generated, click the link below to download.<br><br>' + '<a href="' + data.url + '">' + data.url + '</a></p>'
-	        });
+	        }).then(function () {}, function () {});
 	        return;
 	      }
 
@@ -41394,7 +41400,7 @@
 	      message: 'Error modal with body message: ' + bodyMessage,
 	      level: 'info'
 	    });
-	    Sentry.captureException(error);
+	    Sentry.captureException(new Error(bodyMessage));
 
 	    (0, _sweetalert2.default)({
 	      title: '<h2 style="font-family: BenguiatITCW01-BoldCn;">An Error has occured</h2>',
@@ -41402,7 +41408,8 @@
 	      type: "error",
 	      confirmButtonText: "Reload Page",
 	      cancelButtonText: "Report details",
-	      showCancelButton: true
+	      showCancelButton: true,
+	      allowOutsideClick: false
 	    }).then(function () {
 	      window.location.reload();
 	    }, function () {
@@ -41446,7 +41453,7 @@
 	  if (canShowBrowserAlert) {
 	    var isSafari = browser.is('safari');
 	    if (isSafari) {
-	      (0, _swal2.default)("Safari is incompatible", "Sorry but this website may have issues when running in Safari. For best experiencie try to use it on Chrome.", "error");
+	      (0, _swal2.default)("Safari is incompatible", "Sorry but this website may have issues when running in Safari. For best experiencie try to use it on Chrome.", "error").then(function () {}, function () {});
 	    }
 	  }
 
