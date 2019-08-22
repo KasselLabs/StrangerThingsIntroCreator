@@ -174,6 +174,12 @@ class App extends React.Component {
         }
 
         this.setLoading();
+
+        Sentry.addBreadcrumb({
+            message: JSON.stringify(opening),
+            level: 'info',
+        });
+
         $.ajax({
             url: postUrl(),
             method: "POST",
