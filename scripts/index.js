@@ -68,7 +68,7 @@ class App extends React.Component {
               success: (opening) => {
                 this.unsetLoading();
                 if(opening == null){
-                    swal("Oops...", "Opening not found!", "error");
+                    swal("Oops...", "Opening not found!", "error").then(()=>{},()=>{});
                     return;
                 }
                 $('[name=custom]').val('STIC_' + props.hash);
@@ -169,7 +169,7 @@ class App extends React.Component {
 
         var aLogo = opening.logo.split('\n');
         if(aLogo.length > 2){
-            swal("Oops...", "Logo can't have more than 2 lines.", "warning");
+            swal("Oops...", "Logo can't have more than 2 lines.", "warning").then(()=>{},()=>{});
             return;
         }
 
@@ -250,7 +250,7 @@ class App extends React.Component {
         this.refs.logo.value = this.refs.logo.value.replace(' ','');
 
         if(this.state.shouldAlertAboutSpace) {
-            swal("Sorry!", "White space is not allowed in the title! For a better animation try to use only one word per line.", "warning");
+            swal("Sorry!", "White space is not allowed in the title! For a better animation try to use only one word per line.", "warning").then(()=>{},()=>{});
             this.setState({
                 shouldAlertAboutSpace: false,
             })
