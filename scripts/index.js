@@ -173,6 +173,16 @@ class App extends React.Component {
             return;
         }
 
+        const keys = Object.keys(opening);
+        for(let i=0;i<keys.length;i++){
+            const text = opening[keys[i]];
+            const hasInvalidSequence = text.indexOf('??') > -1;
+            if(hasInvalidSequence){
+                swal("Oops...", "Text can't contain the following sequence '??'.\nFound in: \n\n"+text, "warning").then(()=>{},()=>{});
+                return;
+            }
+        }
+
         this.setLoading();
 
         Sentry.addBreadcrumb({
