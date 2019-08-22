@@ -201,6 +201,16 @@
 	                return;
 	            }
 
+	            var keys = Object.keys(opening);
+	            for (var i = 0; i < keys.length; i++) {
+	                var text = opening[keys[i]];
+	                var hasInvalidSequence = text.indexOf('??') > -1;
+	                if (hasInvalidSequence) {
+	                    (0, _swal2.default)("Oops...", "Text can't contain the following sequence '??'.\nFound in: \n\n" + text, "warning").then(function () {}, function () {});
+	                    return;
+	                }
+	            }
+
 	            _this.setLoading();
 
 	            Sentry.addBreadcrumb({
