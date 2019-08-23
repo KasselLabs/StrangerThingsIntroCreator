@@ -112,6 +112,11 @@
 	        if (isSafari) {
 	            return null;
 	        }
+
+	        var error = hint.originalException;
+	        if (error && error.message && error.message.match(/UnhandledRejection.+isTrusted/)) {
+	            return null;
+	        }
 	        return event;
 	    }
 	});
