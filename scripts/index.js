@@ -20,6 +20,14 @@ Sentry.init({
         if(isSafari){
           return null;
         }
+
+        const error = hint.originalException;
+        if (error && error.message
+          && (
+            error.message.match(/UnhandledRejection.+isTrusted/)
+          )) {
+            return null;
+        }
         return event;
     }
 });
