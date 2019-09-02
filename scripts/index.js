@@ -13,24 +13,24 @@ import swal from './swal';
 import { postUrl, getUrl } from './urls';
 import './bitcoinEther';
 
-Sentry.init({
-    dsn: "https://937fa992cecf4a2c9d0c3066f99e463e@sentry.io/1536429",
-    beforeSend: (event, hint) => {
-        const isSafari = browser.is('safari');
-        if(isSafari){
-          return null;
-        }
+// Sentry.init({
+//     dsn: "https://937fa992cecf4a2c9d0c3066f99e463e@sentry.io/1536429",
+//     beforeSend: (event, hint) => {
+//         const isSafari = browser.is('safari');
+//         if(isSafari){
+//           return null;
+//         }
 
-        const error = hint.originalException;
-        if (error && error.message
-          && (
-            error.message.match(/UnhandledRejection.+isTrusted/)
-          )) {
-            return null;
-        }
-        return event;
-    }
-});
+//         const error = hint.originalException;
+//         if (error && error.message
+//           && (
+//             error.message.match(/UnhandledRejection.+isTrusted/)
+//           )) {
+//             return null;
+//         }
+//         return event;
+//     }
+// });
 
 const browser = bowser.getParser(window.navigator.userAgent);
 
