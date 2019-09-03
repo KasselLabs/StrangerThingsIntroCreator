@@ -105,21 +105,24 @@
 	var $ = window.jQuery = __webpack_require__(203);
 
 
-	Sentry.init({
-	    dsn: "https://937fa992cecf4a2c9d0c3066f99e463e@sentry.io/1536429",
-	    beforeSend: function beforeSend(event, hint) {
-	        var isSafari = browser.is('safari');
-	        if (isSafari) {
-	            return null;
-	        }
+	// Sentry.init({
+	//     dsn: "https://937fa992cecf4a2c9d0c3066f99e463e@sentry.io/1536429",
+	//     beforeSend: (event, hint) => {
+	//         const isSafari = browser.is('safari');
+	//         if(isSafari){
+	//           return null;
+	//         }
 
-	        var error = hint.originalException;
-	        if (error && error.message && error.message.match(/UnhandledRejection.+isTrusted/)) {
-	            return null;
-	        }
-	        return event;
-	    }
-	});
+	//         const error = hint.originalException;
+	//         if (error && error.message
+	//           && (
+	//             error.message.match(/UnhandledRejection.+isTrusted/)
+	//           )) {
+	//             return null;
+	//         }
+	//         return event;
+	//     }
+	// });
 
 	var browser = _bowser2.default.getParser(window.navigator.userAgent);
 
@@ -41400,37 +41403,45 @@
 
 	var _sweetalert2 = _interopRequireDefault(_sweetalert);
 
-	var _browser = __webpack_require__(205);
-
-	var Sentry = _interopRequireWildcard(_browser);
-
-	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	// import * as Sentry from '@sentry/browser';
 
 	function ajaxErrorFunction(bodyMessage) {
 	  return function (error) {
 	    console.log(error.status, error.statusText);
-	    Sentry.addBreadcrumb({
-	      message: 'Error modal with body message: ' + bodyMessage,
-	      level: 'info'
-	    });
-	    Sentry.captureException(new Error(bodyMessage));
+	    // Sentry.addBreadcrumb({
+	    //   message: 'Error modal with body message: '+ bodyMessage,
+	    //   level: 'info',
+	    // });
+	    // Sentry.captureException(new Error(bodyMessage));
+
+	    // swal({
+	    //   title: '<h2 style="font-family: BenguiatITCW01-BoldCn;">An Error has occured</h2>',
+	    //   html: '<p style="text-align: left">Something went wrong! Sorry about that! Please try again reloading the page, if this error repeats please report to us on the button below.'+
+	    //         '</p>',
+	    //   type: "error",
+	    //   confirmButtonText: "Reload Page",
+	    //   cancelButtonText: "Report details",
+	    //   showCancelButton: true,
+	    //   allowOutsideClick: false,
+	    // }).then(() => {
+	    //   window.location.reload();
+	    // },() => {
+	    //   Sentry.lastEventId();
+	    //   Sentry.showReportDialog();
+	    // });
 
 	    (0, _sweetalert2.default)({
 	      title: '<h2 style="font-family: BenguiatITCW01-BoldCn;">An Error has occured</h2>',
-	      html: '<p style="text-align: left">Something went wrong! Sorry about that! Please try again reloading the page, if this error repeats please report to us on the button below.' + '</p>',
+	      html: '<p style="text-align: left">Something went wrong! Sorry about that! Please try again reloading the page, if this error repeats please report to us on the button below.' + '<br><a style="color: #C11B1F;" href="mailto:StrangerThings@kassellabs.io?Subject=STIC%20Problem&Body=' + bodyMessage + '" target="_blank">StrangerThings@kassellabs.io</a></p>',
 	      type: "error",
 	      confirmButtonText: "Reload Page",
 	      cancelButtonText: "Report details",
-	      showCancelButton: true,
 	      allowOutsideClick: false
 	    }).then(function () {
 	      window.location.reload();
-	    }, function () {
-	      Sentry.lastEventId();
-	      Sentry.showReportDialog();
-	    });
+	    }, function () {});
 	  };
 	}
 
