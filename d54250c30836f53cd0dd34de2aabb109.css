@@ -97,7 +97,6 @@ body {
   font-size: 0;
   font-family: "BenguiatITCW01-BoldCn";
   color: #000;
-  letter-spacing: -1.3vmin;
   font-weight: bold;
   display: none;
   -webkit-text-stroke-color: #C11B1F;
@@ -856,7 +855,6 @@ body {
   .title--full .title-word-letter[data-letter="A"] {
     animation: full-a 20s ease forwards; }
   .title--full .title-word-letter[data-letter="N1"] {
-    letter-spacing: -15vmin;
     animation: full-n1 20s ease forwards; }
   .title--full .title-word-letter[data-letter="G1"] {
     animation: full-g1 20s ease forwards; }
@@ -871,7 +869,6 @@ body {
   .title--full .title-word-letter[data-letter="I"] {
     animation: full-i 20s ease forwards; }
   .title--full .title-word-letter[data-letter="N2"] {
-    letter-spacing: -15vmin;
     animation: full-n2 20s ease forwards; }
   .title--full .title-word-letter[data-letter="G2"] {
     animation: full-g2 20s ease forwards; }
