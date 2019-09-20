@@ -18,7 +18,6 @@ $font-credits: $AvantFontName, sans-serif;
 
 $title-fsize: 28vmin;
 $title-fsize-large: 34vmin;
-$title-spacing: -1.3vmin;
 $title-stroke: 0.4vmin;
 $title-shadow: 2vmin;
 
@@ -202,7 +201,6 @@ body {
   font-size: 0;
   font-family: $font-title;
   color: $color-bg;
-  letter-spacing: $title-spacing;
   font-weight: bold;
   display: none;
 
@@ -764,7 +762,6 @@ body {
       animation: full-a (20s * $TIME-FACTOR) ease forwards;
     }
     @include letter("N1") {
-      letter-spacing: -15vmin;
       animation: full-n1 (20s * $TIME-FACTOR) ease forwards;
     }
     @include letter("G1") {
@@ -787,7 +784,6 @@ body {
       animation: full-i (20s * $TIME-FACTOR) ease forwards;
     }
     @include letter("N2") {
-      letter-spacing: -15vmin;
       animation: full-n2 (20s * $TIME-FACTOR) ease forwards;
     }
     @include letter("G2") {
