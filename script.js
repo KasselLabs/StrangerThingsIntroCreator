@@ -41477,6 +41477,12 @@
 	  var canShowBrowserAlert = !props.download && !props.edit;
 
 	  if (canShowBrowserAlert) {
+	    var isIOS = browser.is('ios');
+	    if (isIOS) {
+	      (0, _swal2.default)("iOS is incompatible", "Sorry but this website doesn't work on iOS devices. For best experiencie try to use it on Chrome on a desktop device.", "error").then(function () {}, function () {});
+	      return;
+	    }
+
 	    var isSafari = browser.is('safari');
 	    if (isSafari) {
 	      (0, _swal2.default)("Safari is incompatible", "Sorry but this website may have issues when running in Safari. For best experiencie try to use it on Chrome.", "error").then(function () {}, function () {});
