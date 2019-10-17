@@ -246,7 +246,7 @@ body.overflow{
     font-family: $font-credits;
     color: $color-title;
     bottom: 10px;
-    width: 550px;
+    width: 154px;
     font-size: 0.9em;
 
     &#btcether {
@@ -266,8 +266,7 @@ body.overflow{
     &.right{
         position: fixed;
         right: 10px;
-        text-align: right;
-        max-width: 30%;
+        text-align: center;
     }
 
     a{
