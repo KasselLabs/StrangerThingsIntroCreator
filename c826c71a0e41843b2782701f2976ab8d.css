@@ -1069,7 +1069,7 @@ body.overflow {
   font-family: "ITC-Avant-Garde-Gothic", sans-serif;
   color: #C11B1F;
   bottom: 10px;
-  width: 550px;
+  width: 154px;
   font-size: 0.9em; }
   .footerText#btcether {
     width: 140px;
@@ -1084,8 +1084,7 @@ body.overflow {
   .footerText.right {
     position: fixed;
     right: 10px;
-    text-align: right;
-    max-width: 30%; }
+    text-align: center; }
   .footerText a {
     color: #C11B1F;
     font-weight: bold;
