@@ -195,7 +195,8 @@ body {
     color: #A8A6A7;
     background: linear-gradient(#B2B0B1, #A8A6A7);
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; }
+    -webkit-text-fill-color: transparent;
+    padding-top: 10px; }
     @media screen and (max-aspect-ratio: 16 / 9) {
       .credits-group-credit, .credits-group-sub {
         margin-bottom: 0vw; } }
@@ -208,7 +209,7 @@ body {
       position: absolute;
       z-index: -1;
       width: 100%;
-      top: 0;
+      top: 10px;
       left: 0;
       background: none;
       text-shadow: 0.3vmin 0.3vmin 0.15vmin #000; }
