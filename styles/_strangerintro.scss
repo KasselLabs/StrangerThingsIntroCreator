@@ -311,6 +311,7 @@ body {
       background: linear-gradient($color-credits-top, $color-credits-bottom);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      padding-top: 10px;
 
       .no-textstroke & {
         background: none;
@@ -326,7 +327,7 @@ body {
         position: absolute;
         z-index: -1;
         width: 100%;
-        top: 0;
+        top: 10px;
         left: 0;
         background: none;
         text-shadow: $credits-shadow-offset
