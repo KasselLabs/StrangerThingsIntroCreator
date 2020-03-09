@@ -3,6 +3,8 @@ const $ = require('jquery');
 import swal from 'sweetalert2';
 import ajaxErrorFunction from 'errorFunction';
 
+const donationMinimum = 10;
+
 const calcTime = function(queue){
   let minutes = (queue+1)*50;
   let hours = Math.floor(minutes/60);
@@ -98,7 +100,7 @@ export default function downloadVideo(openingKey){
         html: '<p>'+
                         'We want to provide videos for free, but we have to use a server to render it, which costs money.<br>'+
                         'There are <b>'+(queue+1)+' videos</b> in front of you and it will take <b>'+calcTime(queue)+'</b> to be processed.<br/><br/>'+
-                        'Can\'t wait for it? Donate at least <b>$7 Dollars</b>, you will jump the queue and your video will be ready in few hours.<br><br/>'+
+                        'Can\'t wait for it? Donate at least <b>$'+donationMinimum+' Dollars</b>, you will jump the queue and your video will be ready in few hours.<br><br/>'+
                         'The video will be rendered in Full HD quality and MP4 file. To see a sample video click '+
                         '<a href="https://youtu.be/Q0eEXKyA540" target="_blank">here</a>. <br/>'+
                         'Attention! Make sure there are no typos in your text, there will be no correction after the video rendering.<br><br/>'+
@@ -116,12 +118,12 @@ export default function downloadVideo(openingKey){
 
         donateAlert.title = '<h2>Donate</h2>';
         donateAlert.html =`
-          <p>Thanks for your support! Remember, at least $7 Dollars for the rendered video.</p>
+          <p>Thanks for your support! Remember, at least $${donationMinimum} Dollars for the rendered video.</p>
           <p>You can pay via Credit Card or via PayPal.</p>
           <iframe
             id="stripeDonateIframe"
             title="Stripe Payment Form"
-            src="${paymentPageUrl}?embed=true&app=stranger-things&code=${openingKey}"
+            src="${paymentPageUrl}?embed=true&app=stranger-things&code=${openingKey}&amount=${donationMinimum*100}"
             allowpaymentrequest="true"
           ></iframe>
           <p>Or PayPal:</p>
