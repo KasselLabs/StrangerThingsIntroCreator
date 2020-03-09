@@ -39719,6 +39719,8 @@
 
 	var $ = __webpack_require__(204);
 
+	var donationMinimum = 10;
+
 	var calcTime = function calcTime(queue) {
 	  var minutes = (queue + 1) * 50;
 	  var hours = Math.floor(minutes / 60);
@@ -39793,7 +39795,7 @@
 
 	      (0, _sweetalert2.default)({
 	        title: '<h2>Donate and Download</h2>',
-	        html: '<p>' + 'We want to provide videos for free, but we have to use a server to render it, which costs money.<br>' + 'There are <b>' + (queue + 1) + ' videos</b> in front of you and it will take <b>' + calcTime(queue) + '</b> to be processed.<br/><br/>' + 'Can\'t wait for it? Donate at least <b>$7 Dollars</b>, you will jump the queue and your video will be ready in few hours.<br><br/>' + 'The video will be rendered in Full HD quality and MP4 file. To see a sample video click ' + '<a href="https://youtu.be/Q0eEXKyA540" target="_blank">here</a>. <br/>' + 'Attention! Make sure there are no typos in your text, there will be no correction after the video rendering.<br><br/>' + 'By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.' + '</p>',
+	        html: '<p>' + 'We want to provide videos for free, but we have to use a server to render it, which costs money.<br>' + 'There are <b>' + (queue + 1) + ' videos</b> in front of you and it will take <b>' + calcTime(queue) + '</b> to be processed.<br/><br/>' + 'Can\'t wait for it? Donate at least <b>$' + donationMinimum + ' Dollars</b>, you will jump the queue and your video will be ready in few hours.<br><br/>' + 'The video will be rendered in Full HD quality and MP4 file. To see a sample video click ' + '<a href="https://youtu.be/Q0eEXKyA540" target="_blank">here</a>. <br/>' + 'Attention! Make sure there are no typos in your text, there will be no correction after the video rendering.<br><br/>' + 'By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.' + '</p>',
 	        showCancelButton: true,
 	        confirmButtonText: "Yes, donate!",
 	        cancelButtonText: "No, I'll get in the queue!",
@@ -39803,7 +39805,7 @@
 	        var donateAlert = _extends({}, generateAlert);
 
 	        donateAlert.title = '<h2>Donate</h2>';
-	        donateAlert.html = '\n          <p>Thanks for your support! Remember, at least $7 Dollars for the rendered video.</p>\n          <p>You can pay via Credit Card or via PayPal.</p>\n          <iframe\n            id="stripeDonateIframe"\n            title="Stripe Payment Form"\n            src="' + paymentPageUrl + '?embed=true&app=stranger-things&code=' + openingKey + '"\n            allowpaymentrequest="true"\n          ></iframe>\n          <p>Or PayPal:</p>\n          <iframe src="./donateButtons.html#!/' + openingKey + '" height="55"></iframe>\n          <p>Confirm your email below and you will receive a message with the link to download your video when it\'s ready</p>\n          <p>\n            You\'ll be able to add as many e-mails as you want to\n            <b>this video</b>. Just add\n            your other emails after the first one, without donating.\n            Attention! Make sure there are no typos in your text, you will need to request a new video download and donate again.\n            By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.\n          </p>\n        ';
+	        donateAlert.html = '\n          <p>Thanks for your support! Remember, at least $' + donationMinimum + ' Dollars for the rendered video.</p>\n          <p>You can pay via Credit Card or via PayPal.</p>\n          <iframe\n            id="stripeDonateIframe"\n            title="Stripe Payment Form"\n            src="' + paymentPageUrl + '?embed=true&app=stranger-things&code=' + openingKey + '&amount=' + donationMinimum * 100 + '"\n            allowpaymentrequest="true"\n          ></iframe>\n          <p>Or PayPal:</p>\n          <iframe src="./donateButtons.html#!/' + openingKey + '" height="55"></iframe>\n          <p>Confirm your email below and you will receive a message with the link to download your video when it\'s ready</p>\n          <p>\n            You\'ll be able to add as many e-mails as you want to\n            <b>this video</b>. Just add\n            your other emails after the first one, without donating.\n            Attention! Make sure there are no typos in your text, you will need to request a new video download and donate again.\n            By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.\n          </p>\n        ';
 	        (0, _sweetalert2.default)(donateAlert).then(requestVideo.bind(window, true, openingKey), function () {});
 	      }, function () {
 	        (0, _sweetalert2.default)(generateAlert).then(requestVideo.bind(window, false, openingKey), function () {});
