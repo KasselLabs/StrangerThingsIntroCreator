@@ -132,6 +132,10 @@ body.overflow{
     display: none;
 }
 
+.hiddenUnderscore {
+    opacity: 0;
+}
+
 .stranger-alert{
     border: 2px solid $color-title;
     h2 {
