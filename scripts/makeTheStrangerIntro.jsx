@@ -109,7 +109,9 @@ const makeTheStrangerIntro = function(opening){
     }
     element.empty();
     for(var i in word){
-      var letter = $('<span></span>',{class:'title-word-letter',
+      var isUnderscore = word[i] === '_';
+      var hideUnderscoreClass = isUnderscore ? ' hiddenUnderscore' : ' ';
+      var letter = $('<span></span>',{class:'title-word-letter' + hideUnderscoreClass,
                 text:word[i],
                 'data-letter':mapping[i]});
       element.append(letter);
