@@ -5,7 +5,7 @@ $desired-ratio: #{$desired-ratio-x} / #{$desired-ratio-y};
 $desired-ratio-multiplier: $desired-ratio-y / $desired-ratio-x;
 
 $color-bg: #000;
-$color-title: #C11B1F;
+$color-title: #d81417;
 $color-credits: #A8A6A7;
 $color-credits-top: #B2B0B1;
 $color-credits-bottom: $color-credits;
@@ -198,7 +198,8 @@ body {
   width: 100%;
   font-size: 0;
   font-family: $font-title;
-  color: $color-bg;
+  // color: $color-bg;
+  color: 'rgb(0, 0, 0, 81%)';
   font-weight: bold;
   display: none;
 
@@ -211,6 +212,42 @@ body {
                 -3px  0 $title-shadow $color-title,
                  0 -3px $title-shadow $color-title,
                  0  3px $title-shadow $color-title;
+  }
+
+  .season {
+    @keyframes season-number {
+      0% {
+        opacity: 0;
+        color: black;
+      }
+      65% {
+        opacity: 0;
+      }
+      70% {
+        opacity: 1;
+        color: black;
+      }
+      80% {
+        color: #d81417ad;
+      }
+      100% {
+        color: #d81417ad;
+      }
+    }
+
+    animation: season-number 20s cubic-bezier(0.15, 0.7, 0.26, 0.88) forwards;
+    @include v-rule(font-size, 2200vmin);
+    -webkit-text-stroke-color: #d81417ad;
+    -webkit-text-stroke-width: 4vmin;
+    text-shadow: 0 0 $title-shadow rgba($color-title, 0.5);
+    position: absolute;
+    width: 100%;
+    display: flex;
+    top: -140vw;
+
+    span {
+      width: 100%;
+    }
   }
 
   &--show {
