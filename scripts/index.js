@@ -3,7 +3,7 @@ import 'strangerScript';
 import ReactDOM from 'react-dom';
 import React from 'react';
 import makeTheStrangerIntro from 'makeTheStrangerIntro';
-import bowser from 'bowser';
+import browser from './browser';
 import * as Sentry from '@sentry/browser';
 
 import downloadVideo from './downloadVideo';
@@ -31,8 +31,6 @@ import './bitcoinEther';
 //         return event;
 //     }
 // });
-
-const browser = bowser.getParser(window.navigator.userAgent);
 
 const defaultOpening = {
     logo: `STRANGER
