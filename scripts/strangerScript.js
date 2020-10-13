@@ -1,5 +1,7 @@
 'use strict';
 
+import browser from "./browser";
+
 var musicPath = require("../assets/music.mp3");
 
 // Real quick add another modernizr check foooor...
@@ -12,12 +14,15 @@ Modernizr.addTest('textstroke', function () {
   }
 });
 
+const isIOS = browser.is('ios');
+const musicReadyEventName = isIOS ? 'loadedmetadata' : 'canplay';
+
 // Fade out intro, start music and animation
 window.startStranger = function start() {
 
   window.music = new Audio(musicPath);
-var ja = false;
-  music.addEventListener("canplay", function () {
+  var ja = false;
+  music.addEventListener(musicReadyEventName, function () {
     setTimeout(function () {
       startAnimation();
       setTimeout(function () {
@@ -29,7 +34,7 @@ var ja = false;
       }, 200);
     }, 1500);
   });
-}
+};
 
 // Kick off the animation
 function startAnimation() {

@@ -1,8 +1,6 @@
-import Bowser from "bowser";
+import browser from "./browser";
 
 import swal from './swal';
-
-const browser = Bowser.getParser(window.navigator.userAgent);
 
 let modalAlreadyShow = false;
 
