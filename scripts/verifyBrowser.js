@@ -15,6 +15,7 @@ const verifyBrowser = (props) => {
     const isIOS = browser.is('ios');
     if(isIOS){
       swal("iOS is incompatible", "Sorry but this website doesn't work on iOS devices. For best experiencie try to use it on Chrome on a desktop device.", "error").then(()=>{},()=>{});
+      modalAlreadyShow = true;
       return;
     }
 
