@@ -41508,6 +41508,7 @@
 	    var isIOS = _browser2.default.is('ios');
 	    if (isIOS) {
 	      (0, _swal2.default)("iOS is incompatible", "Sorry but this website doesn't work on iOS devices. For best experiencie try to use it on Chrome on a desktop device.", "error").then(function () {}, function () {});
+	      modalAlreadyShow = true;
 	      return;
 	    }
 
