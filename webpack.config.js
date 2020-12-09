@@ -45,7 +45,6 @@ module.exports = {
     new CopyWebpackPlugin([
         {from: './preview.png'},
         {from: './.nojekyll'},
-        {from: './donateButtons.html'},
     ]),
     cssExtractTextPlugin,
     new IndexHtmlPlugin('index.html', 'index.html'),
