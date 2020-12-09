@@ -121,13 +121,11 @@ export default function downloadVideo(openingKey){
           <p>Thanks for your support! Remember, at least $${donationMinimum} Dollars for the rendered video.</p>
           <p>You can pay via Credit Card or via PayPal.</p>
           <iframe
-            id="stripeDonateIframe"
+            id="donate-iframe"
             title="Stripe Payment Form"
             src="${paymentPageUrl}?embed=true&app=stranger-things&code=${openingKey}&amount=${donationMinimum*100}"
             allowpaymentrequest="true"
           ></iframe>
-          <p>Or PayPal:</p>
-          <iframe src="./donateButtons.html#!/${openingKey}" height="55"></iframe>
           <p>Confirm your email below and you will receive a message with the link to download your video when it's ready</p>
           <p>
             You'll be able to add as many e-mails as you want to
