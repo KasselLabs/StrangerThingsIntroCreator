@@ -1072,16 +1072,6 @@ body.overflow {
   bottom: 10px;
   width: 154px;
   font-size: 0.9em; }
-  .footerText#btcether {
-    width: 140px;
-    font-weight: bold;
-    display: flex;
-    line-height: 25px; }
-    .footerText#btcether:hover {
-      text-decoration: underline;
-      cursor: pointer; }
-    .footerText#btcether span {
-      margin-left: 5px; }
   .footerText.right {
     position: fixed;
     right: 10px;
@@ -1100,7 +1090,9 @@ body.overflow {
   position: fixed;
   bottom: 10px;
   left: 10px;
-  text-align: left; }
+  text-align: left;
+  display: flex;
+  flex-direction: column; }
   .leftFooter div {
     margin-bottom: 10px; }
   .leftFooter form {
@@ -1128,3 +1120,17 @@ iframe {
 #donate-iframe {
   width: 100%;
   height: 505px; }
+
+#donateFooterButton {
+  border: 2px solid #C11B1F !important;
+  color: #C11B1F !important;
+  background-color: black !important;
+  border-radius: 3px;
+  box-shadow: none;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 500;
+  padding: 10px 32px;
+  margin-bottom: 10px; }
+  #donateFooterButton:focus {
+    outline: none; }
