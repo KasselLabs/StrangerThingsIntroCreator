@@ -11,7 +11,7 @@ import ajaxErrorFunction from './errorFunction';
 import verifyBrowser from './verifyBrowser';
 import swal from './swal';
 import { postUrl, getUrl } from './urls';
-import './bitcoinEther';
+import './donateButton';
 
 // Sentry.init({
 //     dsn: "https://937fa992cecf4a2c9d0c3066f99e463e@sentry.io/1536429",
@@ -77,7 +77,6 @@ class App extends React.Component {
                     swal("Oops...", "Opening not found!", "error").then(()=>{},()=>{});
                     return;
                 }
-                $('[name=custom]').val('STIC_' + props.hash);
                 makeTheStrangerIntro(opening);
                 if(autoPlay){
                     this.playIntro();

@@ -61,6 +61,45 @@ const requestVideo = function(donate,key, email){
   });
 };
 
+const defaultDownloadAlert = {
+  title: '<h2>Video Download</h2>',
+  html: '<p>'+
+              'Type your email below and you will receive a message with the URL to download your video when it\'s ready'+
+              '</p>',
+  input: 'email',
+  showCancelButton: true,
+  inputPlaceholder: "Your e-mail...",
+  showLoaderOnConfirm: true,
+};
+
+export const showDonateModalCallback = (openingKey) => () => {
+
+  const donateAlert = {
+    ...defaultDownloadAlert,
+  };
+
+  donateAlert.title = '<h2>Donate</h2>';
+  donateAlert.html =`
+    <p>Thanks for your support! Remember, at least $${donationMinimum} Dollars for the rendered video.</p>
+    <p>You can pay via Credit Card or via PayPal.</p>
+    <iframe
+      id="donate-iframe"
+      title="Stripe Payment Form"
+      src="${paymentPageUrl}?embed=true&app=stranger-things&code=${openingKey}&amount=${donationMinimum*100}"
+      allowpaymentrequest="true"
+    ></iframe>
+    <p>Confirm your email below and you will receive a message with the link to download your video when it's ready</p>
+    <p>
+      You'll be able to add as many e-mails as you want to
+      <b>this video</b>. Just add
+      your other emails after the first one, without donating.
+      Attention! Make sure there are no typos in your text, you will need to request a new video download and donate again.
+      By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.
+    </p>
+  `;
+  swal(donateAlert).then(requestVideo.bind(window, true, openingKey), () => {});
+};
+
 export default function downloadVideo(openingKey){
     // check if download is available:
   $.ajax({
@@ -84,17 +123,6 @@ export default function downloadVideo(openingKey){
         return ;
       }
 
-      var generateAlert = {
-        title: '<h2>Video Download</h2>',
-        html: '<p>'+
-                    'Type your email below and you will receive a message with the URL to download your video when it\'s ready'+
-                    '</p>',
-        input: 'email',
-        showCancelButton: true,
-        inputPlaceholder: "Your e-mail...",
-        showLoaderOnConfirm: true,
-      };
-
       swal({
         title: '<h2>Donate and Download</h2>',
         html: '<p>'+
@@ -110,35 +138,11 @@ export default function downloadVideo(openingKey){
         confirmButtonText: "Yes, donate!",
         cancelButtonText: "No, I'll get in the queue!",
         animation: "slide-from-top",
-      }).then(() => {
-
-        const donateAlert = {
-          ...generateAlert,
-        };
-
-        donateAlert.title = '<h2>Donate</h2>';
-        donateAlert.html =`
-          <p>Thanks for your support! Remember, at least $${donationMinimum} Dollars for the rendered video.</p>
-          <p>You can pay via Credit Card or via PayPal.</p>
-          <iframe
-            id="donate-iframe"
-            title="Stripe Payment Form"
-            src="${paymentPageUrl}?embed=true&app=stranger-things&code=${openingKey}&amount=${donationMinimum*100}"
-            allowpaymentrequest="true"
-          ></iframe>
-          <p>Confirm your email below and you will receive a message with the link to download your video when it's ready</p>
-          <p>
-            You'll be able to add as many e-mails as you want to
-            <b>this video</b>. Just add
-            your other emails after the first one, without donating.
-            Attention! Make sure there are no typos in your text, you will need to request a new video download and donate again.
-            By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.
-          </p>
-        `;
-        swal(donateAlert).then(requestVideo.bind(window, true, openingKey), () => {});
-      },() => {
-        swal(generateAlert).then(requestVideo.bind(window, false, openingKey), () => {});
-      });
+      }).then(
+        showDonateModalCallback(openingKey),
+        () => {
+          swal(defaultDownloadAlert).then(requestVideo.bind(window, false, openingKey), () => {});
+        });
     },
     error: ajaxErrorFunction('Error when request video information to download.'),
   });
