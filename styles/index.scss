@@ -289,6 +289,23 @@ body.overflow{
     form{
         margin-bottom: 15px;
     }
+
+    .social-pages {
+        margin-bottom: 10px;
+
+        > a {
+            margin-right: 10px;
+            fill: $color-title;
+
+            &:hover {
+            fill: lighten($color-title, 30);
+            }
+        }
+
+        svg {
+            width: 40px;
+        }
+    }
 }
 
 iframe{
