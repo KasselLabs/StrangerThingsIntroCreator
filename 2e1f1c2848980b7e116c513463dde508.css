@@ -1097,6 +1097,15 @@ body.overflow {
     margin-bottom: 10px; }
   .leftFooter form {
     margin-bottom: 15px; }
+  .leftFooter .social-pages {
+    margin-bottom: 10px; }
+    .leftFooter .social-pages > a {
+      margin-right: 10px;
+      fill: #C11B1F; }
+      .leftFooter .social-pages > a:hover {
+        fill: #ee8789; }
+    .leftFooter .social-pages svg {
+      width: 40px; }
 
 iframe {
   border: none; }
