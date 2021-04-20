@@ -286,13 +286,25 @@ body.overflow{
         margin-bottom: 10px;
     }
 
-    .fb-like {
-        margin-bottom: 0px;
-        margin-left: -7px;
-    }
-
     form{
         margin-bottom: 15px;
+    }
+
+    .social-pages {
+        margin-bottom: 10px;
+
+        > a {
+            margin-right: 10px;
+            fill: $color-title;
+
+            &:hover {
+            fill: lighten($color-title, 30);
+            }
+        }
+
+        svg {
+            width: 40px;
+        }
     }
 }
 
