@@ -347,3 +347,24 @@ iframe{
     padding: 10px 32px;
     margin-bottom: 10px;
 }
+
+.social-buttons {
+    display: flex;
+    flex-direction: column;
+
+    p {
+      text-align: center;
+    }
+
+    > .social-pages-links > a:not(:last-child) {
+        margin-right: 10px;
+    }
+
+    > .social-pages-links > a {
+        fill: $color-title;
+
+        &:hover {
+            fill: lighten($color-title, 30);
+        }
+    }
+}
