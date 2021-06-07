@@ -82,8 +82,9 @@ const requestVideo = function(donate,key, email){
                   ) :
                   ''
               ) +
-              '<p style="margin-top: 15px;">By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.</p>' +
-              getSocialButtonsHTML('In the meantime, follow us on our social media to get our latest updates!'),
+              getSocialButtonsHTML('In the meantime, follow us on our social media to get our latest updates!') +
+              '<p style="margin-top: 15px;">By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.</p>'
+              ,
       }).then(()=>{},()=>{});
     },
     error: ajaxErrorFunction('Error when request video download.'),
