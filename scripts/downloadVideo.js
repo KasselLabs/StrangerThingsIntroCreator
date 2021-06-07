@@ -3,9 +3,9 @@ const $ = require('jquery');
 import swal from 'sweetalert2';
 import ajaxErrorFunction from 'errorFunction';
 
-const getSocialButtonsHTML = (text) => `
+const getSocialButtonsHTML = (text, center) => `
   <div class="social-buttons">
-    <p>
+    <p style="${center ? 'text-align: center': ''}">
       ${ text }
     </p>
     <div class="social-pages-links">
@@ -82,7 +82,7 @@ const requestVideo = function(donate,key, email){
                   ) :
                   ''
               ) +
-              getSocialButtonsHTML('In the meantime, follow us on our social media to get our latest updates!') +
+              getSocialButtonsHTML('Don\'t forget to follow us on social media below to get our latest updates!') +
               '<p style="margin-top: 15px;">By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.</p>'
               ,
       }).then(()=>{},()=>{});
@@ -146,9 +146,10 @@ export default function downloadVideo(openingKey){
       if(data.url){
         swal({
           title: '<h2>Download</h2>',
-          html: '<p>'+
-                        'This video has already been generated, click the link below to download.<br><br>'+
-                        '<a href="'+data.url+'">'+data.url+'</a></p>',
+          html: '<p style="text-align: center">'+
+                        'Your video is available to download, click the button below to download it.<br><br>'+
+                        '<a href="'+data.url+'"><button class="download-button">DOWNLOAD</button></a></p>' +
+                        getSocialButtonsHTML('Don\'t forget to follow us on social media below to get our latest updates!', true),
         }).then(()=>{},()=>{});
         return ;
       }
