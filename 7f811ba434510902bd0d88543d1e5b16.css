@@ -1041,6 +1041,16 @@ body.overflow {
     background-color: black !important; }
     .stranger-alert button:focus {
       outline: none; }
+  .stranger-alert .download-button {
+    border: 2px solid #C11B1F !important;
+    color: #C11B1F !important;
+    background-color: black !important;
+    font-size: 19px;
+    padding: 13px 32px;
+    border-radius: 3px;
+    cursor: pointer; }
+    .stranger-alert .download-button:focus {
+      outline: none; }
   .stranger-alert a {
     color: #C11B1F;
     font-weight: bold; }
