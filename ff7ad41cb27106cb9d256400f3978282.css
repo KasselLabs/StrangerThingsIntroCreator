@@ -1141,3 +1141,13 @@ iframe {
   margin-bottom: 10px; }
   #donateFooterButton:focus {
     outline: none; }
+
+.social-buttons {
+  display: flex;
+  flex-direction: column; }
+  .social-buttons > .social-pages-links > a:not(:last-child) {
+    margin-right: 16px; }
+  .social-buttons > .social-pages-links > a {
+    fill: #C11B1F; }
+    .social-buttons > .social-pages-links > a:hover {
+      fill: #ee8789; }
