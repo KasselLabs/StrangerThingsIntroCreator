@@ -103,6 +103,34 @@ const defaultDownloadAlert = {
 };
 
 export const showDonateModalCallback = (openingKey) => () => {
+  if (!window.paymentEventHandler) {
+    window.paymentEventHandler = (event) => {
+      const iframe = document.querySelector('#donate-iframe');
+      if (!iframe && window.dataLayer) {
+        return;
+      }
+
+      const iframeURL = iframe.src.split('?')[0];
+      if (!iframeURL.startsWith(event.origin)) {
+        return;
+      }
+
+      const { data } = event;
+      if (data.type !== 'payment') {
+        return;
+      }
+
+      if (data.action === 'success') {
+        window.dataLayer.push({
+          event: 'purchase',
+          value: data.payload.finalAmount,
+          currency: data.payload.currency,
+        });
+      }
+    };
+
+    window.addEventListener('message', window.paymentEventHandler);
+  }
 
   const donateAlert = {
     ...defaultDownloadAlert,
