@@ -39805,6 +39805,35 @@
 
 	var showDonateModalCallback = exports.showDonateModalCallback = function showDonateModalCallback(openingKey) {
 	  return function () {
+	    if (!window.paymentEventHandler) {
+	      window.paymentEventHandler = function (event) {
+	        var iframe = document.querySelector('#donate-iframe');
+	        if (!iframe && window.dataLayer) {
+	          return;
+	        }
+
+	        var iframeURL = iframe.src.split('?')[0];
+	        if (!iframeURL.startsWith(event.origin)) {
+	          return;
+	        }
+
+	        var data = event.data;
+
+	        if (data.type !== 'payment') {
+	          return;
+	        }
+
+	        if (data.action === 'success') {
+	          window.dataLayer.push({
+	            event: 'purchase',
+	            value: data.payload.finalAmount,
+	            currency: data.payload.currency
+	          });
+	        }
+	      };
+
+	      window.addEventListener('message', window.paymentEventHandler);
+	    }
 
 	    var donateAlert = _extends({}, defaultDownloadAlert);
 
