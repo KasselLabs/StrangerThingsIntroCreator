@@ -222,6 +222,7 @@ body {
   &-word {
     position: relative;
     display: inline-block;
+    white-space: nowrap;
 
     &--second {
       transform: translateY(-38%);
