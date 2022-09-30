@@ -1138,20 +1138,6 @@ iframe {
   width: 100%;
   height: 505px; }
 
-#donateFooterButton {
-  border: 2px solid #C11B1F !important;
-  color: #C11B1F !important;
-  background-color: black !important;
-  border-radius: 3px;
-  box-shadow: none;
-  cursor: pointer;
-  font-size: 17px;
-  font-weight: 500;
-  padding: 10px 32px;
-  margin-bottom: 10px; }
-  #donateFooterButton:focus {
-    outline: none; }
-
 .social-buttons {
   display: flex;
   flex-direction: column; }

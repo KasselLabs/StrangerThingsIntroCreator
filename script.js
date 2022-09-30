@@ -90,8 +90,6 @@
 
 	var _urls = __webpack_require__(265);
 
-	__webpack_require__(266);
-
 	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -514,7 +512,7 @@
 	    _reactDom2.default.render(_react2.default.createElement(App, { hash: key, edit: edit, download: download }), document.getElementById('react-body'));
 	});
 
-	var bg = __webpack_require__(267);
+	var bg = __webpack_require__(266);
 
 	$(document).ready(function () {
 	    var video = document.querySelector('#video');
@@ -39786,7 +39784,7 @@
 	      var queue = data.queue;
 	      (0, _sweetalert2.default)({
 	        title: '<h2>Video Request Sent</h2>',
-	        html: '<p>' + 'Your video has been queued. Your current position on the queue is <b>' + (queue + 1) + '</b>, which will take up to <b>' + calcTime(queue) + '</b>.<br>' + 'The link to download the video will be sent to the e-mail:<br>' + '</p><span class="email">' + email + '</span>' + (donate ? '<p style="margin-top: 15px;">But as you donated, we will bump you up on the queue.' + '  Thank you so much for supporting us! You should receive the confirmation email within a few minutes.' + '</p>' : '') + getSocialButtonsHTML('Don\'t forget to follow us on social media below to get our latest updates!') + '<p style="margin-top: 15px;">By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.</p>'
+	        html: '<p>' + 'Your video has been queued. Your current position on the queue is <b>' + (queue + 1) + '</b>, which will take up to <b>' + calcTime(queue) + '</b>.<br>' + 'The link to download the video will be sent to the e-mail:<br>' + '</p><span class="email">' + email + '</span>' + (donate ? '<p style="margin-top: 15px;">But as you paid, we will bump you up on the queue.' + '  Thank you so much for supporting us! You should receive the confirmation email within a few minutes.' + '</p>' : '') + getSocialButtonsHTML('Don\'t forget to follow us on social media below to get our latest updates!') + '<p style="margin-top: 15px;">By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.</p>'
 
 	      }).then(function () {}, function () {});
 	    },
@@ -39837,8 +39835,8 @@
 
 	    var donateAlert = _extends({}, defaultDownloadAlert);
 
-	    donateAlert.title = '<h2>Donate</h2>';
-	    donateAlert.html = '\n    <p>Thanks for your support! Remember, at least $' + donationMinimum + ' Dollars for the rendered video.</p>\n    <p>You can pay via Credit Card or via PayPal.</p>\n    <iframe\n      id="donate-iframe"\n      title="Stripe Payment Form"\n      src="' + paymentPageUrl + '?embed=true&app=stranger-things&code=' + openingKey + '&amount=' + donationMinimum * 100 + '"\n      allowpaymentrequest="true"\n    ></iframe>\n    <p>Confirm your email below and you will receive a message with the link to download your video when it\'s ready</p>\n    <p>\n      You\'ll be able to add as many e-mails as you want to\n      <b>this video</b>. Just add\n      your other emails after the first one, without donating.\n      Attention! Make sure there are no typos in your text, you will need to request a new video download and donate again.\n      By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.\n    </p>\n  ';
+	    donateAlert.title = '<h2>Payment</h2>';
+	    donateAlert.html = '\n    <p>Thanks for your support! Remember, at least $' + donationMinimum + ' Dollars for the rendered video.</p>\n    <p>You can pay via Credit Card or via PayPal.</p>\n    <iframe\n      id="donate-iframe"\n      title="Stripe Payment Form"\n      src="' + paymentPageUrl + '?embed=true&app=stranger-things&code=' + openingKey + '&amount=' + donationMinimum * 100 + '"\n      allowpaymentrequest="true"\n    ></iframe>\n    <p>Confirm your email below and you will receive a message with the link to download your video when it\'s ready</p>\n    <p>\n      You\'ll be able to add as many e-mails as you want to\n      <b>this video</b>. Just add\n      your other emails after the first one, without paying.\n      Attention! Make sure there are no typos in your text, you will need to request a new video download and pay again.\n      By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.\n    </p>\n  ';
 	    (0, _sweetalert2.default)(donateAlert).then(requestVideo.bind(window, true, openingKey), function () {});
 	  };
 	};
@@ -39865,10 +39863,10 @@
 	      }
 
 	      (0, _sweetalert2.default)({
-	        title: '<h2>Donate and Download</h2>',
-	        html: '<p>' + 'We want to provide videos for free, but we have to use a server to render it, which costs money.<br>' + 'There are <b>' + (queue + 1) + ' videos</b> in front of you and it will take <b>' + calcTime(queue) + '</b> to be processed.<br/><br/>' + 'Can\'t wait for it? Donate at least <b>$' + donationMinimum + ' Dollars</b>, you will jump the queue and your video will be ready in few hours.<br><br/>' + 'The video will be rendered in Full HD quality and MP4 file. To see a sample video click ' + '<a href="https://youtu.be/Q0eEXKyA540" target="_blank">here</a>. <br/>' + 'Attention! Make sure there are no typos in your text, there will be no correction after the video rendering.<br><br/>' + 'By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.' + '</p>',
+	        title: '<h2>Payment and Download</h2>',
+	        html: '<p>' + 'We want to provide videos for free, but we have to use a server to render it, which costs money.<br>' + 'There are <b>' + (queue + 1) + ' videos</b> in front of you and it will take <b>' + calcTime(queue) + '</b> to be processed.<br/><br/>' + 'Can\'t wait for it? Pay at least <b>$' + donationMinimum + ' Dollars</b>, you will jump the queue and your video will be ready in few hours.<br><br/>' + 'The video will be rendered in Full HD quality and MP4 file. To see a sample video click ' + '<a href="https://youtu.be/Q0eEXKyA540" target="_blank">here</a>. <br/>' + 'Attention! Make sure there are no typos in your text, there will be no correction after the video rendering.<br><br/>' + 'By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.' + '</p>',
 	        showCancelButton: true,
-	        confirmButtonText: "Yes, donate!",
+	        confirmButtonText: "Yes, I'll skip the queue!",
 	        cancelButtonText: "No, I'll get in the queue!",
 	        animation: "slide-from-top"
 	      }).then(showDonateModalCallback(openingKey), function () {
@@ -41610,36 +41608,6 @@
 
 /***/ }),
 /* 266 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _sweetalert = __webpack_require__(261);
-
-	var _sweetalert2 = _interopRequireDefault(_sweetalert);
-
-	var _downloadVideo = __webpack_require__(260);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	document.querySelector('#donateFooterButton').addEventListener('click', function (e) {
-	  e.preventDefault();
-	  var urlParams = location.hash.replace('#!/', '').split('/');
-	  var openingKey = urlParams[0];
-
-	  if (!openingKey) {
-	    (0, _sweetalert2.default)({
-	      title: 'Donate',
-	      html: '<p>You can donate to support us and receive your creation rendered as a video.</p>\n      <p>But first, you need to create your own content, edit the fields, and click on the PLAY button to make it.</p>\n      <p>Then you can request your Download or click on this button to donate for it.</p>'
-	    });
-	    return;
-	  }
-
-	  (0, _downloadVideo.showDonateModalCallback)(openingKey)();
-	});
-
-/***/ }),
-/* 267 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	module.exports = __webpack_require__.p + "c9566bf08c5703c8276c3675110c71b6.jpg";
