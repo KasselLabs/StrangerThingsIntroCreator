@@ -76,7 +76,7 @@ const requestVideo = function(donate,key, email){
                 (
                   donate ?
                   (
-                   '<p style="margin-top: 15px;">But as you donated, we will bump you up on the queue.'+
+                   '<p style="margin-top: 15px;">But as you paid, we will bump you up on the queue.'+
                     '  Thank you so much for supporting us! You should receive the confirmation email within a few minutes.'+
                    '</p>'
                   ) :
@@ -136,7 +136,7 @@ export const showDonateModalCallback = (openingKey) => () => {
     ...defaultDownloadAlert,
   };
 
-  donateAlert.title = '<h2>Donate</h2>';
+  donateAlert.title = '<h2>Payment</h2>';
   donateAlert.html =`
     <p>Thanks for your support! Remember, at least $${donationMinimum} Dollars for the rendered video.</p>
     <p>You can pay via Credit Card or via PayPal.</p>
@@ -150,8 +150,8 @@ export const showDonateModalCallback = (openingKey) => () => {
     <p>
       You'll be able to add as many e-mails as you want to
       <b>this video</b>. Just add
-      your other emails after the first one, without donating.
-      Attention! Make sure there are no typos in your text, you will need to request a new video download and donate again.
+      your other emails after the first one, without paying.
+      Attention! Make sure there are no typos in your text, you will need to request a new video download and pay again.
       By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.
     </p>
   `;
@@ -183,18 +183,18 @@ export default function downloadVideo(openingKey){
       }
 
       swal({
-        title: '<h2>Donate and Download</h2>',
+        title: '<h2>Payment and Download</h2>',
         html: '<p>'+
                         'We want to provide videos for free, but we have to use a server to render it, which costs money.<br>'+
                         'There are <b>'+(queue+1)+' videos</b> in front of you and it will take <b>'+calcTime(queue)+'</b> to be processed.<br/><br/>'+
-                        'Can\'t wait for it? Donate at least <b>$'+donationMinimum+' Dollars</b>, you will jump the queue and your video will be ready in few hours.<br><br/>'+
+                        'Can\'t wait for it? Pay at least <b>$'+donationMinimum+' Dollars</b>, you will jump the queue and your video will be ready in few hours.<br><br/>'+
                         'The video will be rendered in Full HD quality and MP4 file. To see a sample video click '+
                         '<a href="https://youtu.be/Q0eEXKyA540" target="_blank">here</a>. <br/>'+
                         'Attention! Make sure there are no typos in your text, there will be no correction after the video rendering.<br><br/>'+
                         'By using this website you are agreeing to our <a href="https://help.kassellabs.io/strangerthings/" target="_blank">Terms of Service</a>.'+
                         '</p>',
         showCancelButton: true,
-        confirmButtonText: "Yes, donate!",
+        confirmButtonText: "Yes, I'll skip the queue!",
         cancelButtonText: "No, I'll get in the queue!",
         animation: "slide-from-top",
       }).then(
