@@ -345,17 +345,6 @@ iframe{
     height: 505px;
 }
 
-#donateFooterButton {
-    @include buttonStyle;
-    border-radius: 3px;
-    box-shadow: none;
-    cursor: pointer;
-    font-size: 17px;
-    font-weight: 500;
-    padding: 10px 32px;
-    margin-bottom: 10px;
-}
-
 .social-buttons {
     display: flex;
     flex-direction: column;
