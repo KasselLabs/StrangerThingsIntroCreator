@@ -203,7 +203,7 @@ class App extends React.Component {
             data: JSON.stringify(opening),
             dataType: "json",
             success: (data)=>{
-                var key = 'A'+data.name.substring(1);
+                var key = 'B'+data.name.substring(1);
                 // CreatedIntros.save(key,opening);
                 location.hash = '!/'+key;
             },
