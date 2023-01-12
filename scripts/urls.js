@@ -1,6 +1,5 @@
 export const postUrl = () => {
-  // return 'https://strangerthingsintrocreator.firebaseio.com/openings.json';
-  return 'https://strangerthingsic-a.firebaseio.com/openings.json';
+  return "https://strangerthingsic-b-default-rtdb.firebaseio.com/openings.json";
 };
 
 export const getUrl = key => {
@@ -9,6 +8,10 @@ export const getUrl = key => {
   if(id === "A"){
     code = key.substr(1);
     return "https://strangerthingsic-a.firebaseio.com/openings/-"+code + ".json";
+  }
+  if(id === "B"){
+    code = key.substr(1);
+    return "https://strangerthingsic-b-default-rtdb.firebaseio.com/openings/-" + code + ".json";
   }
   else{
     return "https://strangerthingsintrocreator.firebaseio.com/openings/-"+code + ".json";
