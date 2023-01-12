@@ -227,7 +227,7 @@
 	                data: JSON.stringify(opening),
 	                dataType: "json",
 	                success: function success(data) {
-	                    var key = 'A' + data.name.substring(1);
+	                    var key = 'B' + data.name.substring(1);
 	                    // CreatedIntros.save(key,opening);
 	                    location.hash = '!/' + key;
 	                },
@@ -41591,8 +41591,7 @@
 	  value: true
 	});
 	var postUrl = exports.postUrl = function postUrl() {
-	  // return 'https://strangerthingsintrocreator.firebaseio.com/openings.json';
-	  return 'https://strangerthingsic-a.firebaseio.com/openings.json';
+	  return "https://strangerthingsic-b-default-rtdb.firebaseio.com/openings.json";
 	};
 
 	var getUrl = exports.getUrl = function getUrl(key) {
@@ -41601,6 +41600,10 @@
 	  if (id === "A") {
 	    code = key.substr(1);
 	    return "https://strangerthingsic-a.firebaseio.com/openings/-" + code + ".json";
+	  }
+	  if (id === "B") {
+	    code = key.substr(1);
+	    return "https://strangerthingsic-b-default-rtdb.firebaseio.com/openings/-" + code + ".json";
 	  } else {
 	    return "https://strangerthingsintrocreator.firebaseio.com/openings/-" + code + ".json";
 	  }
