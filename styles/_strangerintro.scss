@@ -746,7 +746,7 @@ body {
       75%, 100% { transform: scaleX(1); }
     }
 
-    width: 1000vw;
+    width: 1300vw;
     animation: full-title (20s * $TIME-FACTOR) cubic-bezier(0.15, 0.7, 0.26, 0.88) forwards;
     transform-origin: 50% 45%;
 
