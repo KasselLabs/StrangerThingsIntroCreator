@@ -69,26 +69,6 @@ body.overflow{
       }
     }
 
-    .playButton{
-        font-family: $font-title;
-        cursor: pointer;
-        font-size: 60px;
-        border: 0;
-        background: transparent;
-        color: $color-title;
-        text-shadow: none;
-        transition: text-shadow 0.5s ease-out;
-        outline: none;
-        border: 6px solid #C11B1F;
-        padding: 10px 20px;
-        border-radius: 15px;
-        background-color: rgba(0, 0, 0, 0.64);
-
-        &:focus, &:hover {
-            text-shadow: -1px 1px 8px #ccc, 1px -1px 8px #ccc;
-        }
-    }
-
     .downloadButton{
         @extend .playButton;
         animation: pulseDownload 3s ease 0s infinite;
@@ -97,6 +77,42 @@ body.overflow{
             text-shadow: -1px 1px 8px #ccc, 1px -1px 8px #ccc;
             animation: none;
         }
+    }
+}
+
+.playButton {
+    font-family: $font-title;
+    cursor: pointer;
+    font-size: 60px;
+    border: 0;
+    background: transparent;
+    color: $color-title;
+    text-shadow: none;
+    transition: text-shadow 0.5s ease-out;
+    outline: none;
+    border: 6px solid #C11B1F;
+    padding: 10px 20px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.64);
+
+    &:focus, &:hover {
+        text-shadow: -1px 1px 8px #ccc, 1px -1px 8px #ccc;
+    }
+}
+
+.menu-options {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding-bottom: 8px;
+
+    .playButton {
+      font-size: 32px;
+      border-width: 3px;
     }
 }
 

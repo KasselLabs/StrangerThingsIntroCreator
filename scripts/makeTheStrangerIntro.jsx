@@ -147,4 +147,14 @@ const makeTheStrangerIntro = function(opening){
   generateCredits(creditsFinal, opening['credits13']);
 };
 
+window.goToDownload = () => {
+  window.location.href = window.location.href + '/download';
+  window.location.reload();
+};
+
+window.goToEdit = () => {
+  window.location.href = window.location.href + '/edit';
+  window.location.reload();
+};
+
 export default makeTheStrangerIntro;
